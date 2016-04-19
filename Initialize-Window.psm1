@@ -9,9 +9,6 @@ function Initialize-Window{
   $Window=[Windows.Markup.XamlReader]::Load( $reader )
 
   ##Controls
-  $MessageWindowFont = $Window.FindName("MessageWindowFont")
-  $OnlineUsersFont = $Window.FindName("OnlineUsersFont")
-  $InputBoxFont = $Window.FindName("InputBoxFont")
   $Script:Paragraph = $Window.FindName('Paragraph')
   $Script:OnlineUsers = $Window.FindName('OnlineUsers')
   $SendButton = $Window.FindName('Send_btn')
@@ -25,117 +22,19 @@ function Initialize-Window{
   $AboutMenu = $Window.FindName('AboutMenu')
 
   ##Events
-  ##InputBox Font event
-  $InputBoxFont.Add_Click({
-      Invoke-FontDialog -Control $Inputbox_txt -ShowColor -FontMustExist
-  })
-  ##OnlineUser Font event
-  $OnlineUsersFont.Add_Click({
-      Invoke-FontDialog -Control $OnlineUsers -ShowColor -FontMustExist
-  })
-  ##MessageWindow Font event
-  $MessageWindowFont.Add_Click({
-      Invoke-FontDialog -Control $MainMessage -FontMustExist
-  })
 
   #ExitMenu
   $ExitMenu.Add_Click({
       $Window.Close()
   })
 
-  #SaveTranscriptMenu
-  $SaveTranscript.Add_Click({
-      Save-Transcript
-  })
-
   #AboutMenu
   $AboutMenu.Add_Click({
-      Open-PoshChatAbout
+      Open-About
   })
 
   #Connect
-  $ConnectButton.Add_Click({
-      #Get Server IP
-      $Server = $Server_txt.text
-
-      #Get Username
-      $Global:Username = $Username_txt.text
-      If ($username -match "^[A-Za-z0-9_!]*$") {
-          $ConnectButton.IsEnabled = $False
-          $DisconnectButton.IsEnabled = $True
-          If ($Server -AND $Username) {
-              $Message = "Connecting to {0} as {1}" -f $Server,$username
-              $Paragraph.Inlines.Add((New-ChatMessage -Message ("{0} " -f (Get-Date).ToShortDateString()) -ForeGround Black -Bold))
-              $Paragraph.Inlines.Add((New-Object System.Windows.Documents.LineBreak))
-              $Paragraph.Inlines.Add((New-ChatMessage -Message $message -ForeGround Green))
-              $Paragraph.Inlines.Add((New-Object System.Windows.Documents.LineBreak))
-
-              #Connect to server
-              $Endpoint = new-object System.Net.IPEndpoint ([ipaddress]::any,$SourcePort)
-              $TcpClient = [Net.Sockets.TCPClient]$endpoint
-              Try {
-                  $TcpClient.Connect($Server,15600)
-                  $Global:ServerStream = $TcpClient.GetStream()
-                  $data = [text.Encoding]::Ascii.GetBytes($Username)
-                  $ServerStream.Write($data,0,$data.length)
-                  $ServerStream.Flush()
-                  If ($TcpClient.Connected) {
-                      $Window.Title = ("{0}: Connected as {1}" -f $Window.Title,$Username)
-                      #Kick off a job to watch for messages from clients
-                      $newRunspace = [RunSpaceFactory]::CreateRunspace()
-                      $newRunspace.Open()
-                      $newRunspace.SessionStateProxy.setVariable("TcpClient", $TcpClient)
-                      $newRunspace.SessionStateProxy.setVariable("MessageQueue", $MessageQueue)
-                      $newRunspace.SessionStateProxy.setVariable("ConnectButton", $ConnectButton)
-                      $newPowerShell = [PowerShell]::Create()
-                      $newPowerShell.Runspace = $newRunspace
-                      $sb = {
-                          #Code to kick off client connection monitor and look for incoming messages.
-                          $client = $TCPClient
-                          $serverstream = $Client.GetStream()
-                          #While client is connected to server, check for incoming traffic
-                          While ($client.Connected) {
-                              Try {
-                                  [byte[]]$inStream = New-Object byte[] 10025
-                                  $buffSize = $client.ReceiveBufferSize
-                                  $return = $serverstream.Read($inStream, 0, $buffSize)
-                                  If ($return -gt 0) {
-                                      $Messagequeue.Enqueue([System.Text.Encoding]::ASCII.GetString($inStream[0..($return - 1)]))
-                                  }
-                              } Catch {
-                                  #Connection to server has been closed
-                                  $Messagequeue.Enqueue("~S")
-                                  Break
-                              }
-                          }
-                          #Shutdown the connection as connection has ended
-                          $client.Client.Disconnect($True)
-                          $client.Client.Close()
-                          $client.Close()
-                          $ConnectButton.IsEnabled = $True
-                          $DisconnectButton.IsEnabled = $False
-                      }
-                      $job = "" | Select Job, PowerShell
-                      $job.PowerShell = $newPowerShell
-                      $Job.job = $newPowerShell.AddScript($sb).BeginInvoke()
-                      $ClientConnection.$Username = $job
-                  }
-              } Catch {
-                  #Errors Connecting to server
-                  $Paragraph.Inlines.Add((New-ChatMessage -Message ("Unable to connect to {0}! Please try again later!" -f $RemoteServer) -ForeGround Red))
-                  $ConnectButton.IsEnabled = $True
-                  $TcpClient.Close()
-                  $ClientConnection.user.PowerShell.EndInvoke($ClientConnections.user.Job)
-                  $ClientConnection.user.PowerShell.Runspace.Close()
-                  $ClientConnection.user.PowerShell.Dispose()
-              }
-          }
-      } Else {
-          #Username is not in correct format
-          $Paragraph.Inlines.Add((New-ChatMessage -Message ("`'{0}`' is not a valid username! Acceptable characters are 'A-Za-z0-9!_'. Spaces are not allowed!" -f $username) -ForeGround Red))
-          $Paragraph.Inlines.Add((New-Object System.Windows.Documents.LineBreak))
-      }
-  })
+  $ConnectButton.Add_Click({})
 
   #Send message
   $SendButton.Add_Click({
