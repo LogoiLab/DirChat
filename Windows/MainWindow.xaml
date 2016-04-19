@@ -16,18 +16,18 @@
         </Grid.RowDefinitions>   
        <Menu Width = 'Auto' HorizontalAlignment = 'Stretch' Grid.Row = '0' Grid.ColumnSpan = '3'>
             <MenuItem x:Name = 'FileMenu' Header = '_File'>           
-                <MenuItem x:Name = 'NewMenu' Header = '_Close' ToolTip = 'Close clubbs and rooms.'>
-                  <MenuItem x:Name = 'NewClubbMenu' Header = '_New Clubb' ToolTip = 'Creates a new Clubb.'></MenuItem>
-                  <MenuItem x:Name = 'NewRoomMenu' Header = '_New Room' ToolTip = 'Creates a new Room.'></MenuItem>
+                <MenuItem x:Name = 'NewMenu' Header = '_New' ToolTip = 'Create Clubbs or Rooms.'>
+                  <MenuItem x:Name = 'NewClubbMenu' Header = 'New _Clubb' ToolTip = 'Creates a new Clubb.'></MenuItem>
+                  <MenuItem x:Name = 'NewRoomMenu' Header = 'New _Room' ToolTip = 'Creates a new Room.'></MenuItem>
                 </MenuItem>
-                <MenuItem x:Name = 'CloseMenu' Header = '_Close' ToolTip = 'Close clubbs and rooms.'>
-                  <MenuItem x:Name = 'CloseClubbMenu' Header = '_Close Clubb' ToolTip = 'Closes an entire Clubb.'>
-                    <MenuItem x:Name = 'CloseCurrentClubbMenu' Header = '_Close Current Clubb' ToolTip = 'Closes the Clubb you are in.'></MenuItem>
-                    <MenuItem x:Name = 'CloseOtherClubbMenu' Header = '_Close Other Clubb' ToolTip = 'Closes another Clubb.'></MenuItem>
+                <MenuItem x:Name = 'CloseMenu' Header = '_Close' ToolTip = 'Close Clubbs or Rooms.'>
+                  <MenuItem x:Name = 'CloseClubbMenu' Header = 'Close _Clubb' ToolTip = 'Closes an entire Clubb.'>
+                    <MenuItem x:Name = 'CloseCurrentClubbMenu' Header = 'Close _Current Clubb' ToolTip = 'Closes the Clubb you are in.'></MenuItem>
+                    <MenuItem x:Name = 'CloseOtherClubbMenu' Header = 'Close _Other Clubb' ToolTip = 'Closes another Clubb.'></MenuItem>
                   </MenuItem>
-                  <MenuItem x:Name = 'CloseRoomMenu' Header = '_Close Chat Room' ToolTip = 'Closes a chat Room.'>
-                    <MenuItem x:Name = 'CloseCurrentRoomMenu' Header = '_Close Current Room' ToolTip = 'Closes the Room you are in.'></MenuItem>
-                    <MenuItem x:Name = 'CloseOtherRoomMenu' Header = '_Close Other Room' ToolTip = 'Closes another Room.'></MenuItem>
+                  <MenuItem x:Name = 'CloseRoomMenu' Header = 'Close _Room' ToolTip = 'Closes a chat Room.'>
+                    <MenuItem x:Name = 'CloseCurrentRoomMenu' Header = 'Close _Current Room' ToolTip = 'Closes the Room you are in.'></MenuItem>
+                    <MenuItem x:Name = 'CloseOtherRoomMenu' Header = 'Close _Other Room' ToolTip = 'Closes another Room.'></MenuItem>
                   </MenuItem>
                 </MenuItem>
                 <Separator />
