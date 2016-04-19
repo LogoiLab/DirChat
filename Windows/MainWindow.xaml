@@ -1,7 +1,7 @@
 <Window
     xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-    x:Name='Window' Title='PoshChat' Height = '512' Width = '512' WindowStartupLocation = 'CenterScreen' ShowInTaskbar = 'True'>
+    x:Name='Window' Title='DirChat' Height = '512' Width = '512' WindowStartupLocation = 'CenterScreen' ShowInTaskbar = 'True'>
     <Grid ShowGridLines = 'false'>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ='175*'> </ColumnDefinition>
@@ -16,17 +16,23 @@
         </Grid.RowDefinitions>   
        <Menu Width = 'Auto' HorizontalAlignment = 'Stretch' Grid.Row = '0' Grid.ColumnSpan = '3'>
             <MenuItem x:Name = 'FileMenu' Header = '_File'>           
-                <MenuItem x:Name = 'SaveTranscript' Header = '_Save Transcript' ToolTip = 'Saves the chat transcript.' InputGestureText ='Ctrl+S'> </MenuItem>
+                <MenuItem x:Name = 'NewMenu' Header = '_Close' ToolTip = 'Close clubbs and rooms.'>
+                  <MenuItem x:Name = 'NewClubbMenu' Header = '_New Clubb' ToolTip = 'Creates a new Clubb.'></MenuItem>
+                  <MenuItem x:Name = 'NewRoomMenu' Header = '_New Room' ToolTip = 'Creates a new Room.'></MenuItem>
+                </MenuItem>
+                <MenuItem x:Name = 'CloseMenu' Header = '_Close' ToolTip = 'Close clubbs and rooms.'>
+                  <MenuItem x:Name = 'CloseClubbMenu' Header = '_Close Clubb' ToolTip = 'Closes an entire Clubb.'>
+                    <MenuItem x:Name = 'CloseCurrentClubbMenu' Header = '_Close Current Clubb' ToolTip = 'Closes the Clubb you are in.'></MenuItem>
+                    <MenuItem x:Name = 'CloseOtherClubbMenu' Header = '_Close Other Clubb' ToolTip = 'Closes another Clubb.'></MenuItem>
+                  </MenuItem>
+                  <MenuItem x:Name = 'CloseRoomMenu' Header = '_Close Chat Room' ToolTip = 'Closes a chat Room.'>
+                    <MenuItem x:Name = 'CloseCurrentRoomMenu' Header = '_Close Current Room' ToolTip = 'Closes the Room you are in.'></MenuItem>
+                    <MenuItem x:Name = 'CloseOtherRoomMenu' Header = '_Close Other Room' ToolTip = 'Closes another Room.'></MenuItem>
+                  </MenuItem>
+                </MenuItem>
                 <Separator />
                 <MenuItem x:Name = 'ExitMenu' Header = 'E_xit' ToolTip = 'Exits the client.' InputGestureText ='Ctrl+E'> </MenuItem>
-            </MenuItem>
-            <MenuItem x:Name = 'EditMenu' Header = '_Edit'>
-                <MenuItem x:Name = 'FontMenu' Header = '_Font'>
-                    <MenuItem x:Name = 'MessageWindowFont' Header = '_MessageWindow'/>
-                    <MenuItem x:Name = 'OnlineUsersFont' Header = '_OnlineUsers'/>
-                    <MenuItem x:Name = 'InputBoxFont' Header = '_InputBox'/>
-                </MenuItem>         
-            </MenuItem>           
+            </MenuItem>     
             <MenuItem x:Name = 'HelpMenu' Header = '_Help'>
                 <MenuItem x:Name = 'AboutMenu' Header = '_About' ToolTip = 'Show the current version and other information.'> </MenuItem>
             </MenuItem>            
