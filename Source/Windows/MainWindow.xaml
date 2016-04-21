@@ -10,8 +10,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>   
        <Menu Width="Auto" HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="3">
@@ -46,40 +46,26 @@
             <MenuItem x:Name="HelpMenu" Header="_Help">
                 <MenuItem x:Name="AboutMenu" Header="_About" ToolTip="Show the current version and other information."> </MenuItem>
             </MenuItem>            
-        </Menu>          
-        <RichTextBox x:Name="MainMessage_txt" Grid.Column="0" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Visible">   
-            <FlowDocument>
-                <Paragraph x:Name="Paragraph"/>
-            </FlowDocument>
-        </RichTextBox>
-        <Label Grid.Column="1" Grid.Row="1" Width="8" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"
-        Background="LightGray"/>
-        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Background="LightGray"/>
-        <ListView x:Name="OnlineUsers" Grid.Column="2" Grid.Row="1" />
-        <Grid Grid.Column="0" Grid.Row="3" ShowGridLines="false">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="175*"> </ColumnDefinition>
-            <ColumnDefinition Width="Auto"> </ColumnDefinition>
-        </Grid.ColumnDefinitions>          
-            <TextBox x:Name="Input_txt" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap"
-            Grid.Column="0" HorizontalAlignment="Stretch"/>
-            <Button x:Name="Send_btn" Width="50" Height="25" Content="Send" Grid.Column="1"/>
-        </Grid>   
-        <Grid Grid.Column="2" Grid.Row="3" ShowGridLines="false">  
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"> </ColumnDefinition>
-                <ColumnDefinition Width="5"> </ColumnDefinition>
-                <ColumnDefinition Width="*"> </ColumnDefinition>
-                <ColumnDefinition Width="Auto"> </ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>  
-            <Label Content="Nick" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0"/>
-            <TextBox x:Name="username_txt" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="0"/>
-            <CheckBox Grid.Column="3" VerticalAlignment="Center"></CheckBox>
-        </Grid>   
+        </Menu>
+        <RichTextBox Grid.Row="2" Grid.Column="0" IsReadOnly="True"></RichTextBox>
+        <TabControl Grid.Row="2" Grid.Column="2">
+          <TabItem Header="Clubbs">
+            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+              <Label>Clubb</Label>
+            </StackPanel>
+          </TabItem>
+          <TabItem Header="Rooms">
+            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+              <Label>Room</Label>
+            </StackPanel>
+          </TabItem>
+          <TabItem Header="Users">
+            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+              <Label>User</Label>
+            </StackPanel>
+          </TabItem>
+        </TabControl>
+        <RichTextBox Grid.Column="0" Grid.Row="3"></RichTextBox>
+        <Button Grid.Column="2" Grid.Row="3">Send</Button>
     </Grid>
 </Window>
