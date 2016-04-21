@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>   
        <Menu Width="Auto" HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="3">
             <MenuItem x:Name="FileMenu" Header="_File">           
@@ -30,8 +30,18 @@
                     <MenuItem x:Name="CloseOtherRoomMenu" Header="Close _Other Room" ToolTip="Closes another Room."></MenuItem>
                   </MenuItem>
                 </MenuItem>
+                <MenuItem x:Name="ExitMenu" Header="_Exit" ToolTip="Exit Clubbs or Rooms.">
+                  <MenuItem x:Name="ExitClubbMenu" Header="Exit _Clubb" ToolTip="Exits an entire Clubb.">
+                    <MenuItem x:Name="ExitCurrentClubbMenu" Header="Exit _Current Clubb" ToolTip="Exits the Clubb you are in."></MenuItem>
+                    <MenuItem x:Name="ExitOtherClubbMenu" Header="Exit _Other Clubb" ToolTip="Exits another Clubb."></MenuItem>
+                  </MenuItem>
+                  <MenuItem x:Name="ExitRoomMenu" Header="Exit _Room" ToolTip="Exits a chat Room.">
+                    <MenuItem x:Name="ExitCurrentRoomMenu" Header="Exit _Current Room" ToolTip="Exits the Room you are in."></MenuItem>
+                    <MenuItem x:Name="ExitOtherRoomMenu" Header="Exit _Other Room" ToolTip="Exits another Room."></MenuItem>
+                  </MenuItem>
+                </MenuItem>
                 <Separator />
-                <MenuItem x:Name="ExitMenu" Header="E_xit" ToolTip="Exits the client." InputGestureText="Ctrl+E"> </MenuItem>
+                <MenuItem x:Name="QuitMenu" Header="_Quit" ToolTip="Exits the client." InputGestureText="Ctrl+Q"> </MenuItem>
             </MenuItem>     
             <MenuItem x:Name="HelpMenu" Header="_Help">
                 <MenuItem x:Name="AboutMenu" Header="_About" ToolTip="Show the current version and other information."> </MenuItem>
@@ -69,11 +79,7 @@
             </Grid.RowDefinitions>  
             <Label Content="Nick" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0"/>
             <TextBox x:Name="username_txt" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="0"/>
-            <Label Content="Clubb" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
-            <TextBox x:Name="clubbname_txt" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="1"/> 
-            <Button x:Name="ClubbBrowse_btn" Content=".." Grid.Column="4" Grid.Row="1" HorizontalAlignment="stretch"/>
-            <Button x:Name="Join_btn" Content="Join" Grid.ColumnSpan="4" Grid.Row="2" HorizontalAlignment="stretch"/>    
-            <Label Grid.Column="3" Grid.Row="2" Width="5"/>
+            <CheckBox Grid.Column="3" VerticalAlignment="Center"></CheckBox>
         </Grid>   
     </Grid>
 </Window>
