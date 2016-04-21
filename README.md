@@ -1,5 +1,5 @@
 ![DirChat Logo](https://raw.githubusercontent.com/LogoiLab/DirChat/master/Resources/Images/logo_small.png)
-# DirChat (Directory Based Chat System)
+# DirChat `(Directory Based Chat System)
 /dɪər//tʃæt/
 
 DirChat is a "serverless" ad-hoc style messaging system.
