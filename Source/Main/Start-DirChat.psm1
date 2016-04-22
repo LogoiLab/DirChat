@@ -1,4 +1,4 @@
-function Initialize-DirChat{
+function Start-DirChat{
   param(
     [switch]$splash
   )
