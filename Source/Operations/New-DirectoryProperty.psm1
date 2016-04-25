@@ -22,18 +22,40 @@ function New-DirectoryProperty{
     Throw "$Data cannot be null."
   }
   if($Force -eq $true){
+    if($Header -ne $null -and $Footer -ne $null){
+      New-Item -Path $Path -Name "$Header.$Data.$Footer" -ItemType Directory -Force
+      Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
+    }
     if($Header -ne $null -and $Footer -eq $null){
       New-Item -Path $Path -Name "$Header.$Data" -ItemType Directory -Force
+      Return (Convert-Path -Path "$Path\$Header.$Data")
     }
     elseif($Header -eq $null -and $Footer -ne $null){
       New-Item -Path $Path -Name "$Data.$Footer" -ItemType Directory -Force
+      Return (Convert-Path -Path "$Path\$Data.$Footer")
     }
     elseif($Header -eq $null -and $Footer -eq $null){
       New-Item -Path $Path -Name "$Data" -ItemType Directory -Force
+      Return (Convert-Path -Path "$Path\$Data")
     }
   }
   else{
-
+    if($Header -ne $null -and $Footer -ne $null){
+      New-Item -Path $Path -Name "$Header.$Data.$Footer" -ItemType Directory
+      Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
+    }
+    if($Header -ne $null -and $Footer -eq $null){
+      New-Item -Path $Path -Name "$Header.$Data" -ItemType Directory
+      Return (Convert-Path -Path "$Path\$Header.$Data")
+    }
+    elseif($Header -eq $null -and $Footer -ne $null){
+      New-Item -Path $Path -Name "$Data.$Footer" -ItemType Directory
+      Return (Convert-Path -Path "$Path\$Data.$Footer")
+    }
+    elseif($Header -eq $null -and $Footer -eq $null){
+      New-Item -Path $Path -Name "$Data" -ItemType Directory
+      Return (Convert-Path -Path "$Path\$Data")
+    }
   }
-  New-Item -Path $Path -Name "$Header.$Data.$Footer" -ItemType Directory -Force
+  Return $false
 }
