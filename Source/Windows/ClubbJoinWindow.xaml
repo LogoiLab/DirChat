@@ -1,7 +1,7 @@
 <Window
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  x:Name="ClubbCreateWindow" Title="Join Clubb" Height="150" Width="516" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" Margin="4">
+  x:Name="ClubbCreateWindow" Title="Join Clubb" Height="150" Width="516" WindowStartupLocation="CenterScreen" ResizeMode = 'NoResize' ShowInTaskbar="False" Margin="4">
   <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ShowGridLines="false" Margin="4">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto"></ColumnDefinition>
