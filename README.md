@@ -10,8 +10,6 @@ DirChat is a "serverless" ad-hoc style messaging system.
 
 > The idea for this project was taken from a presentation about storing data in the Windows SAM file as GUIDs, the speaker noted that directory names can be used in a similar way. I no longer have a link...Sorry?
 
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
-
 ### Technologies
 
 DirChat works thanks to the following:
