@@ -8,7 +8,7 @@ DirChat is a "serverless" ad-hoc style messaging system.
   - Entirely portable.
   - Works like magic!
 
-> The idea for this project was taken from a presentation about storing data in the Windows SAM file as GUIDs, the speaker noted that directory names can be used in a similar way. I no longer have a link...Sorry?
+> The idea for this project was taken from a defcon presentation about storing data in the Windows SAM file as GUIDs, the speaker noted that directory names can be used in a similar way. I no longer have a link...Sorry?
 
 ### Technologies
 
