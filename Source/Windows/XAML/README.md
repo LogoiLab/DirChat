@@ -6,6 +6,6 @@ These files are special xml files used to define all of the controls for a windo
 
 >You can safely ignore these if you aren't interested in the nitty-gritty window sizing and styling.
 
-TL;DR;
+TL:DR;
 -
 >Just know that DirChat uses these files to draw the GUI for the application.

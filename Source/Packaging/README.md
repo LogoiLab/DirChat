@@ -6,6 +6,6 @@ These part of the repository will eventually be used to store all the **STUFF** 
 
 >iexpress packages that unpack a directory structure created by DirChat technology that install themselves where the user wants!? Yep...I Said It...
 
-TL;DR;
+TL:DR;
 -
 >Super recursive and spooky packaging system based on DirChat technology.
