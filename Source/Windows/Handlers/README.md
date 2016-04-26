@@ -2,7 +2,7 @@
 
 DirChat Handler Modules
 =
-These files are function modules sharing the same structure. The functions within these modules are responsible for drawing, hooking, managing, and manipulating the surface GUI for DirChat.
+These files are function modules sharing the same structure. The functions within these modules are responsible for drawing, hooking`wipe that smirk off your face`, managing, and manipulating the surface GUI for DirChat.
 
 TL:DR:
 -

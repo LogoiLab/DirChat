@@ -8,4 +8,4 @@ These function modules handle all the low level stuff that DirChat is based on. 
 
 TL:DR;
 -
->The behind the scenes low level stuff
+>The behind the scenes low level stuff.
