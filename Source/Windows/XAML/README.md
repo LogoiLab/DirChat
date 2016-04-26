@@ -2,7 +2,7 @@
 
 DirChat XAML Files
 =
-These files are special xml files used to define all of the controls for a window or window system. DirChat uses these files so that the `Show-<windowname>.psm1` file for each window doesent get grossly large.
+These files are special xml files used to define all of the controls for a window or window system. DirChat uses these files so that the `Show-WindowName.psm1` file for each window doesn't get grossly large.
 
 >You can safely ignore these if you aren't interested in the nitty-gritty window sizing and styling.
 
