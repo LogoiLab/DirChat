@@ -16,9 +16,9 @@
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-    <Label Grid.Column="0" Grid.Row="0" Margin="4">Room:</Label>
-    <ComboBox Grid.Column="1" Grid.Row="0" Margin="4"></ComboBox>
-    <CheckBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" Margin="4">I am sure I want to close this Clubb.</CheckBox>
+    <Label x:Name="ClubbLabel" Grid.Column="0" Grid.Row="0" Margin="4">Clubb:</Label>
+    <ComboBox x:Name="ClubbComboBox" Grid.Column="1" Grid.Row="0" Margin="4"></ComboBox>
+    <CheckBox x:Name="ClubbCheckBox" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" Margin="4">I am sure I want to close this Clubb.</CheckBox>
     <Grid Grid.Row="5" Grid.ColumnSpan="3" ShowGridLines="false" Margin="4">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="246"></ColumnDefinition>
@@ -27,8 +27,8 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
-      <Button HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Margin="4">Close Clubb</Button>
-      <Button IsDefault="True" IsCancel="True" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="4">Cancel</Button>
+      <Button x:Name="Close" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Margin="4">Close Clubb</Button>
+      <Button x:Name="Cancel" IsDefault="True" IsCancel="True" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="4">Cancel</Button>
     </Grid>     
   </Grid>
 </Window>

@@ -3,12 +3,12 @@
   xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
   x:Name='AboutWindow' Title='About' Height = '188' Width = '375' ResizeMode = 'NoResize' WindowStartupLocation = 'CenterScreen' ShowInTaskbar = 'False'>
   <StackPanel>
-    <Label FontWeight = 'Bold' FontSize = '20'>Directory Based Chat Sytem (DirChat)</Label>
-    <Label FontWeight = 'Bold' FontSize = '16' Padding = '4'> Version: 0.2 </Label>
-    <Label FontWeight = 'Bold' FontSize = '16' Padding = '4'> Created By: LogoiLab </Label>
+    <Label x:Name="Label1" FontWeight = 'Bold' FontSize = '20'>Directory Based Chat Sytem (DirChat)</Label>
+    <Label x:Name="Label2" FontWeight = 'Bold' FontSize = '16' Padding = '4'> Version: 0.2 </Label>
+    <Label x:Name="Label3" FontWeight = 'Bold' FontSize = '16' Padding = '4'> Created By: LogoiLab </Label>
     <Label Padding = '10'>
-    <Hyperlink x:Name = 'GitHubLink'>http://github.com/LogoiLab/DirChat</Hyperlink>
+    <Hyperlink x:Name = "GitHubLink">http://github.com/LogoiLab/DirChat</Hyperlink>
     </Label>
-    <Button x:Name = 'CloseButton' Width = 'Auto' Padding="4"> Close </Button>
+    <Button x:Name = "CloseButton" Width = 'Auto' Padding="4"> Close </Button>
   </StackPanel>
 </Window>
