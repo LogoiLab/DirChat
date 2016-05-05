@@ -25,79 +25,39 @@ function Set-DirectoryProperty{
     Throw "$Path is not a valid path."
   }
   if($Data -eq $null){
-    if($Force -eq $true){
-      if($Header -ne $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$Footer" -Force
-        Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
-      }
-      elseif($Header -ne $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$OldFooter" -Force
-        Return (Convert-Path -Path "$Path\$Header.$Data")
-      }
-      elseif($Header -eq $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData.$Footer" -Force
-        Return (Convert-Path -Path "$Path\$Data.$Footer")
-      }
-      elseif($Header -eq $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter" -Force
-        Return (Convert-Path -Path "$Path\$Data")
-      }
+    if($Header -ne $null -and $Footer -ne $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$Footer" -Force $Force
+      Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
     }
-    else{
-      if($Header -ne $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$Footer"
-        Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
-      }
-      elseif($Header -ne $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$OldFooter"
-        Return (Convert-Path -Path "$Path\$Header.$Data")
-      }
-      elseif($Header -eq $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData.$Footer"
-        Return (Convert-Path -Path "$Path\$Data.$Footer")
-      }
-      elseif($Header -eq $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter"
-        Return (Convert-Path -Path "$Path\$Data")
-      }
+    elseif($Header -ne $null -and $Footer -eq $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$OldData.$OldFooter" -Force $Force
+      Return (Convert-Path -Path "$Path\$Header.$Data")
+    }
+    elseif($Header -eq $null -and $Footer -ne $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData.$Footer" -Force $Force
+      Return (Convert-Path -Path "$Path\$Data.$Footer")
+    }
+    elseif($Header -eq $null -and $Footer -eq $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter" -Force $Force
+      Return (Convert-Path -Path "$Path\$Data")
     }
   }
   else{
-    if($Force -eq $true){
-      if($Header -ne $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$Footer" -Force
-        Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
-      }
-      elseif($Header -ne $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$OldFooter" -Force
-        Return (Convert-Path -Path "$Path\$Header.$Data")
-      }
-      elseif($Header -eq $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$Footer" -Force
-        Return (Convert-Path -Path "$Path\$Data.$Footer")
-      }
-      elseif($Header -eq $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter" -Force
-        Return (Convert-Path -Path "$Path\$Data")
-      }
+    if($Header -ne $null -and $Footer -ne $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$Footer" -Force $Force
+      Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
     }
-    else{
-      if($Header -ne $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$Footer"
-        Return (Convert-Path -Path "$Path\$Header.$Data.$Footer")
-      }
-      elseif($Header -ne $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$OldFooter"
-        Return (Convert-Path -Path "$Path\$Header.$Data")
-      }
-      elseif($Header -eq $null -and $Footer -ne $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$Footer"
-        Return (Convert-Path -Path "$Path\$Data.$Footer")
-      }
-      elseif($Header -eq $null -and $Footer -eq $null){
-        Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter"
-        Return (Convert-Path -Path "$Path\$Data")
-      }
+    elseif($Header -ne $null -and $Footer -eq $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$Header.$Data.$OldFooter" -Force $Force
+      Return (Convert-Path -Path "$Path\$Header.$Data")
+    }
+    elseif($Header -eq $null -and $Footer -ne $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$Footer" -Force $Force
+      Return (Convert-Path -Path "$Path\$Data.$Footer")
+    }
+    elseif($Header -eq $null -and $Footer -eq $null){
+      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$Data.$OldFooter" -Force $Force
+      Return (Convert-Path -Path "$Path\$Data")
     }
   }
   Return $false

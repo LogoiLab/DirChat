@@ -15,32 +15,16 @@ function Remove-DirectoryProperty{
     [Parameter(Mandatory=$False)]
       [switch]$Force
   )
-  if($Force -eq $true){
-    if($Header -and $Footer){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData." -Force
-      Return (Convert-Path -Path "$Path\.$OldData.")
-    }
-    elseif($Header){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData.$OldFooter" -Force
-      Return (Convert-Path -Path "$Path\$Header.$Data")
-    }
-    elseif($Footer){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData." -Force
-      Return (Convert-Path -Path "$Path\$Data.$Footer")
-    }
+  if($Header -and $Footer){
+    Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData." -Force $Force
+    Return (Convert-Path -Path "$Path\.$OldData.")
   }
-  else{
-    if($Header -and $Footer){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData."
-      Return (Convert-Path -Path "$Path\.$OldData.")
-    }
-    elseif($Header){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData.$OldFooter"
-      Return (Convert-Path -Path "$Path\$Header.$Data")
-    }
-    elseif($Footer){
-      Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData."
-      Return (Convert-Path -Path "$Path\$Data.$Footer")
-    }
+  elseif($Header){
+    Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name ".$OldData.$OldFooter" -Force $Force
+    Return (Convert-Path -Path "$Path\$Header.$Data")
+  }
+  elseif($Footer){
+    Rename-Item -Path "$Path\$OldHeader.$OldData.$OldFooter" -Name "$OldHeader.$OldData." -Force $Force
+    Return (Convert-Path -Path "$Path\$Data.$Footer")
   }
 }

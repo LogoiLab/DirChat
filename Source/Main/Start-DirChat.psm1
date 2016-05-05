@@ -6,25 +6,25 @@ function Start-DirChat{
     $xaml = Get-Content ".\Windows\SplashWindow.xaml"
     #Load XAML
     $reader=(New-Object System.Xml.XmlNodeReader $xaml)
-    $Window=[Windows.Markup.XamlReader]::Load( $reader )
+    $SplashWindow=[Windows.Markup.XamlReader]::Load($reader)
   }
   $xaml = Get-Content ".\Windows\MainWindow.xaml"
   #Load XAML
   $reader=(New-Object System.Xml.XmlNodeReader $xaml)
-  $Window=[Windows.Markup.XamlReader]::Load( $reader )
+  $Window=[Windows.Markup.XamlReader]::Load($reader)
 
   ##Controls
   $Script:Paragraph = $Window.FindName('Paragraph')
   $Script:OnlineUsers = $Window.FindName('OnlineUsers')
-  $SendButton = $Window.FindName('Send_btn')
+  $Script:SendButton = $Window.FindName('Send_btn')
   $Script:Join = $Window.FindName('Connect_btn')
-  $Username_txt = $Window.FindName('username_txt')
-  $Clubb_txt = $Window.FindName('clubbname_txt')
-  $Inputbox_txt = $Window.FindName('Input_txt')
+  $Script:Username_txt = $Window.FindName('username_txt')
+  $Script:Clubb_txt = $Window.FindName('clubbname_txt')
+  $Script:Inputbox_txt = $Window.FindName('Input_txt')
   $Script:MainMessage = $Window.FindName('MainMessage_txt')
-  $ExitMenu = $Window.FindName('ExitMenu')
-  $SaveTranscript = $Window.FindName('SaveTranscript')
-  $AboutMenu = $Window.FindName('AboutMenu')
+  $Script:ExitMenu = $Window.FindName('ExitMenu')
+  $Script:SaveTranscript = $Window.FindName('SaveTranscript')
+  $Script:AboutMenu = $Window.FindName('AboutMenu')
 
   ##Events
 
