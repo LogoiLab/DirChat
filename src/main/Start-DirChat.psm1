@@ -1,11 +1,11 @@
 function Start-DirChat{
   param(
-    [switch]$splash
+    [switch]$Splash
   )
-  if($splash){
-    $xaml = Get-Content ".\Windows\SplashWindow.xaml"
+  if($Splash){
+    $Spxaml = Get-Content ".\Windows\SplashWindow.xaml"
     #Load XAML
-    $reader=(New-Object System.Xml.XmlNodeReader $xaml)
+    $SpReader=(New-Object System.Xml.XmlNodeReader $xaml)
     $SplashWindow=[Windows.Markup.XamlReader]::Load($reader)
   }
   $xaml = Get-Content ".\Windows\MainWindow.xaml"
@@ -16,11 +16,10 @@ function Start-DirChat{
   ##Controls
   $Script:Paragraph = $Window.FindName('Paragraph')
   $Script:OnlineUsers = $Window.FindName('OnlineUsers')
-  $Script:SendButton = $Window.FindName('Send_btn')
-  $Script:Join = $Window.FindName('Connect_btn')
-  $Script:Username_txt = $Window.FindName('username_txt')
-  $Script:Clubb_txt = $Window.FindName('clubbname_txt')
-  $Script:Inputbox_txt = $Window.FindName('Input_txt')
+  $Script:Send = $Window.FindName('Send')
+  $Script:UserList = $Window.FindName('UserPanel')
+  $Script:ClubbList = $Window.FindName('ClubbPanel')
+  $Script:RoomList = $Window.FindName('RoomPanel')
   $Script:MainMessage = $Window.FindName('MainMessage_txt')
   $Script:ExitMenu = $Window.FindName('ExitMenu')
   $Script:SaveTranscript = $Window.FindName('SaveTranscript')

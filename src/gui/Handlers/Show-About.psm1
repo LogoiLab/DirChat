@@ -1,7 +1,15 @@
 function Show-About{
-  $xaml = Get-Content "\XAML\AboutWindow.xaml"
+  $Script:xaml = Get-Content "\XAML\AboutWindow.xaml"
   #Load XAML
-  $reader=(New-Object System.Xml.XmlNodeReader $xaml)
-  $Window=[Windows.Markup.XamlReader]::Load($reader)
+  $Script:Reader=(New-Object System.Xml.XmlNodeReader $xaml)
+  $Script:Window=[Windows.Markup.XamlReader]::Load($Reader)
+  $Script:CloseButton = $Window.FindName('CloseButton')
+  $Script:GitHubLink = $Window.FindName('GitHubLink')
+  $CloseButton.Add_Click({
+    $Window.Close
+  })
+  $GitHubLink.Add_Click({
+    start "http://www.GitHub.com/LogoiLab/DirChat"
+  })
   $Window.showDialog()
 }

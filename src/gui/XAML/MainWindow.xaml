@@ -13,9 +13,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>   
+        </Grid.RowDefinitions>
        <Menu Width="Auto" HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="3">
-            <MenuItem x:Name="FileMenu" Header="_File">           
+            <MenuItem x:Name="FileMenu" Header="_File">
                 <MenuItem x:Name="NewMenu" Header="_New" ToolTip="Create Clubbs or Rooms.">
                   <MenuItem x:Name="NewClubbMenu" Header="New _Clubb" ToolTip="Creates a new Clubb."></MenuItem>
                   <MenuItem x:Name="NewRoomMenu" Header="New _Room" ToolTip="Creates a new Room."></MenuItem>
@@ -42,26 +42,27 @@
                 </MenuItem>
                 <Separator />
                 <MenuItem x:Name="QuitMenu" Header="_Quit" ToolTip="Exits the client." InputGestureText="Ctrl+Q"> </MenuItem>
-            </MenuItem>     
+            </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="_Help">
               <MenuItem x:Name="AboutMenu" Header="_About" ToolTip="Show the current version and other information."> </MenuItem>
               <MenuItem x:Name="DocumentationMenu" Header="_Documentation" ToolTip="Show the documentation."> </MenuItem>
-            </MenuItem>            
+            </MenuItem>
         </Menu>
-        <RichTextBox Grid.Row="2" Grid.Column="0" IsReadOnly="True"></RichTextBox>
-        <TabControl Grid.Row="2" Grid.Column="2">
+        <TextBox x:Name="MOTD" Grid.Column="0" Grid.Row="1"></TextBox>
+        <RichTextBox x:Name="Paragraph" Grid.Row="2" Grid.Column="0" IsReadOnly="True"></RichTextBox>
+        <TabControl Grid.RowSpan="3" Grid.Column="2">
           <TabItem Header="Clubbs">
-            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+            <StackPanel x:Name="ClubbPanel" Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
               <Label>Clubb</Label>
             </StackPanel>
           </TabItem>
           <TabItem Header="Rooms">
-            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+            <StackPanel x:Name="RoomPanel" Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
               <Label>Room</Label>
             </StackPanel>
           </TabItem>
           <TabItem Header="Users">
-            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
+            <StackPanel x:Name="UserPanel" Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch">
               <Label>User</Label>
             </StackPanel>
           </TabItem>
